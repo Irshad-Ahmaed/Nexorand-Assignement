@@ -1,6 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./dashboard/_components/Header";
+import { ApiProvider } from "./_context/APIDetailContext";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,12 +26,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div>
-          <Header />
+        <ApiProvider>
           <div>
-            {children}
+            <Header />
+            <Toaster />
+            <div>
+              {children}
+            </div>
           </div>
-        </div>
+        </ApiProvider>
       </body>
     </html>
   );
