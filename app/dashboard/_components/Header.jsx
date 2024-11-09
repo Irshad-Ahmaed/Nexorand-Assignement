@@ -12,7 +12,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar } from "@/components/ui/avatar";
 
 
 const Header = () => {
@@ -47,7 +47,7 @@ const Header = () => {
                 </Link>
             </div>
             {
-                !users ?
+                users>0 ?
                     <div className='flex gap-5'>
                         <Button>
                             <Link href={'/login'}>Login</Link>

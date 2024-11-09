@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useId, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import axios from 'axios';
 
 const ApiContext = createContext();
@@ -27,7 +27,7 @@ export const ApiProvider = ({ children }) => {
         console.log(user);
         try {
             const response = await axios.post('http://localhost:7000/api/auth/v1/login', loginData);
-            const { token } = response.data; // Assuming the token is in response.data.token
+            const { token } = response.data; // the token is in response.data.token
             localStorage.setItem('token', token);
             setUser(response.data);
             return true; // Indicate success
